@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import styles from './App.module.css';
+import { Cards, Graph, CountryPicker, NavigationBar } from './components';
+import { getLatestData, getCountriesHistoricalData } from './api/api';
+
+class App extends Component {
+
+  state = {
+    latestData: [],
+    selectedCountry: '',
+    countryHistory: '',
+  }
+
+  async componentDidMount() {
+    const data = await getLatestData();
+    this.setState({ latestData: data });
+  }
+
+  handleCountrySelect = async (country) => {
+    const data = await getLatestData(country);
+    const countryHistoricalData = await getCountriesHistoricalData(country, 30);
+
+    if (country === 'All') {
+      this.setState({ latestData: data, selectedCountry: '', countryHistory: '' });
+    } else {
+      this.setState({ latestData: data, selectedCountry: country, countryHistory: countryHistoricalData });
+    }
+    console.log(country);
+  }
+
+  render() {
+    const { latestData, selectedCountry, countryHistory } = this.state;
+
+    return (
+      <div className={styles.App}>
+        <NavigationBar />
+
+        <Cards data={latestData} />
+        <CountryPicker handleCountrySelect={this.handleCountrySelect} />
+        <Graph data={countryHistory} country={selectedCountry} />
+      </div>
+    )
+  }
 }
 
 export default App;

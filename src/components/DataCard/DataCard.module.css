@@ -1,0 +1,56 @@
+.Card {
+  box-sizing: border-box;
+  width: 25%;
+  margin: 0 10px;
+  display: inline-block;
+  padding: 0;
+  font-family: "Baloo 2", cursive;
+  transition: all 0.3s ease-in;
+}
+
+.Card:hover {
+  color: white;
+}
+
+.title {
+  text-transform: capitalize;
+}
+
+.data {
+  font-size: 25px;
+}
+
+.cases {
+  border-left: 10px solid #4580e6;
+}
+.cases:hover {
+  background: #4580e6;
+}
+
+.deaths {
+  border-left: 10px solid #b83211;
+}
+.deaths:hover {
+  background: #b83211;
+}
+
+.recovered {
+  border-left: 10px solid #0f9960;
+}
+.recovered:hover {
+  background: #0f9960;
+}
+
+.todayCases {
+  border-left: 10px solid #ff6e4a;
+}
+.todayCases:hover {
+  background: #ff6e4a;
+}
+
+.todayDeaths {
+  border-left: 10px solid #738694;
+}
+.todayDeaths:hover {
+  background: #738694;
+}

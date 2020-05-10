@@ -1,0 +1,18 @@
+.Navbar {
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #4b79a1, #283e51);
+  color: white;
+  position: relative;
+}
+
+.Navbar Button {
+  color: white !important;
+}
+
+.title {
+  font-family: "Baloo 2", cursive;
+  font-size: 25px;
+  text-transform: uppercase;
+  position: absolute;
+  left: 50px;
+}
