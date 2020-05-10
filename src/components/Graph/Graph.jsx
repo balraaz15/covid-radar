@@ -100,7 +100,7 @@ class Graph extends Component {
 			<div className={styles.graph}>
 				<h2>Historical Graph</h2>
 				{
-					!this.props.country ? this.drawGraph('area') : this.props.data ? this.drawGraph('bar') : this.showToast(`Oops! We cannot find any historical data for that country.`)}
+					!this.props.country ? this.drawGraph('area') : this.props.data ? this.drawGraph('bar') : this.showToast(`Oops! We cannot find any historical data for that country/territory.`)}
 			</div>
 		)
 	}
