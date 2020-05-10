@@ -8,9 +8,6 @@ import styles from './Graph.module.css';
 class Graph extends Component {
 	state = {
 		historicalData: {},
-		cntrc: [],
-		cntrr: [],
-		cntrd: [],
 	}
 
 	async componentDidMount() {
