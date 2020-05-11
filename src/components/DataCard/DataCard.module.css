@@ -1,7 +1,7 @@
 .Card {
   box-sizing: border-box;
-  width: 25%;
-  margin: 0 10px;
+  min-width: 200px;
+  margin: 10px 0;
   display: inline-block;
   padding: 0;
   font-family: "Baloo 2", cursive;
@@ -9,6 +9,7 @@
 }
 
 .Card:hover {
+  background: #3d6180;
   color: white;
 }
 

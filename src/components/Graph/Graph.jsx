@@ -79,11 +79,11 @@ class Graph extends Component {
 
 		return (
 			<Chart
+				className={styles.graph}
 				options={options}
 				series={series}
 				type={type}
 				height="500"
-				width="1100"
 			/>
 		)
 	}
@@ -94,10 +94,10 @@ class Graph extends Component {
 
 	render() {
 		return (
-			<div className={styles.graph}>
-				<h2>Historical Graph</h2>
+			<div className={styles.graphContainer}>
+				<h2 className={styles.title}>Data from last 30 days</h2>
 				{
-					!this.props.country ? this.drawGraph('area') : this.props.data ? this.drawGraph('bar') : this.showToast(`Oops! We cannot find any historical data for that country/territory.`)}
+					!this.props.country ? this.drawGraph('area') : this.props.data ? this.drawGraph('bar') : this.showToast(`Oops! We are unable to fetch any historical data for that country/territory.`)}
 			</div>
 		)
 	}
