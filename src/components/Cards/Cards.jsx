@@ -38,7 +38,7 @@ const Cards = props => {
 				}
 				{
 					showMore ?
-						dataFull.map(d => <DataCard key={dataFull.indexOf(d)} data={props.data[d]} title={d.toString()} />)
+						dataFull.map(d => props.data[d] ? <DataCard key={dataFull.indexOf(d)} data={props.data[d]} title={d.toString()} /> : null)
 						: null
 				}
 
