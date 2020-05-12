@@ -1,6 +1,6 @@
 .Navbar {
   margin-bottom: 20px;
-  background: linear-gradient(90deg, #4b79a1, #283e51);
+  background: linear-gradient(90deg, #283e51, #4b79a1);
   color: white;
   position: relative;
 }
@@ -9,10 +9,22 @@
   color: white !important;
 }
 
+.link {
+  text-decoration: none !important;
+}
+
 .title {
   font-family: "Baloo 2", cursive;
   font-size: 25px;
   text-transform: uppercase;
   position: absolute;
   left: 50px;
+  text-decoration: none !important;
+  color: #fff !important;
+  margin-top: -15px;
+}
+
+.icon {
+  color: white !important;
+  margin: 0 7px 0 3px !important;
 }

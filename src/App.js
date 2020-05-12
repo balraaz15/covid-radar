@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { Switch, Route } from "react-router-dom";
 
 import styles from './App.module.css';
-import { Cards, Graph, CountryPicker, NavigationBar } from './components';
+import { Cards, Graph, CountryPicker, NavigationBar, DetailsPage } from './components';
 import { getLatestData, getCountriesHistoricalData } from './api/api';
 
 class App extends Component {
@@ -36,9 +37,16 @@ class App extends Component {
       <div className={styles.App}>
         <NavigationBar />
 
-        <Cards data={latestData} />
-        <CountryPicker handleCountrySelect={this.handleCountrySelect} />
-        <Graph data={countryHistory} country={selectedCountry} />
+        <Switch>
+          <Route path="/details">
+            <DetailsPage />
+          </Route>
+          <Route path="/">
+            <Cards data={latestData} />
+            <CountryPicker handleCountrySelect={this.handleCountrySelect} />
+            <Graph data={countryHistory} country={selectedCountry} />
+          </Route>
+        </Switch>
       </div>
     )
   }

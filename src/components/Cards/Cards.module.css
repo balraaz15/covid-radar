@@ -1,11 +1,18 @@
+.Container {
+  width: 85%;
+  margin: 0 auto;
+}
+
 .Cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  width: 80%;
-  margin: 0 auto;
+  justify-content: space-evenly;
 }
 
 .date {
   margin: 10px 0 20px 0;
+}
+
+.icon {
+  margin: 0 3px 0 7px !important;
 }

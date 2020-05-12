@@ -17,8 +17,8 @@ export const getLatestData = async (country) => {
 	}
 
 	try {
-		const { data: { cases, deaths, recovered, todayCases, todayDeaths, updated } } = await axios.get(`${modifiedUrl}`);
-		return { cases, deaths, recovered, todayCases, todayDeaths, updated };
+		const { data: { cases, deaths, recovered, todayCases, todayDeaths, active, critical, tests, affectedCountries, updated } } = await axios.get(`${modifiedUrl}`);
+		return { cases, deaths, recovered, todayCases, todayDeaths, active, critical, tests, affectedCountries, updated };
 	} catch (error) {
 		console.log(error);
 	}

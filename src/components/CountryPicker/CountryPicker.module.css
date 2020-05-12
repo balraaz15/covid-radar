@@ -4,3 +4,9 @@
   margin: 0 auto;
   padding: 5px 10px;
 }
+
+@media (max-width: 650px) {
+  .countryPicker {
+    width: 80%;
+  }
+}

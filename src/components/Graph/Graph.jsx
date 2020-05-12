@@ -51,6 +51,21 @@ class Graph extends Component {
 				dataLabels: { enabled: false },
 				stroke: { curve: 'smooth' },
 				xaxis: { type: 'date', categories: formattedDate },
+				responsive: [{
+					breakpoint: 600,
+					options: {
+						xaxis: {
+							labels: {
+								show: false
+							}
+						},
+						yaxis: {
+							labels: {
+								show: false
+							}
+						}
+					},
+				}]
 			};
 
 			series = [
@@ -74,6 +89,21 @@ class Graph extends Component {
 				stroke: { show: true, width: 2, colors: ['transparent'] },
 				xaxis: { categories: formattedDate },
 				fill: { opacity: 1 },
+				responsive: [{
+					breakpoint: 600,
+					options: {
+						xaxis: {
+							labels: {
+								show: false
+							}
+						},
+						yaxis: {
+							labels: {
+								show: false
+							}
+						}
+					},
+				}]
 			};
 		}
 

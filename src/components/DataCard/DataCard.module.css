@@ -1,10 +1,10 @@
 .Card {
   box-sizing: border-box;
-  min-width: 200px;
   margin: 10px 0;
   display: inline-block;
   padding: 0;
   font-family: "Baloo 2", cursive;
+  border-left: 10px solid #3d6180;
   transition: all 0.3s ease-in;
 }
 
@@ -54,4 +54,49 @@
 }
 .todayDeaths:hover {
   background: #738694;
+}
+
+.critical {
+  border-left: 10px solid #a66321;
+}
+.critical:hover {
+  background: #a66321;
+}
+
+.tests {
+  border-left: 10px solid #008075;
+}
+.tests:hover {
+  background: #008075;
+}
+
+.affectedCountries {
+  border-left: 10px solid #f55656;
+}
+.affectedCountries:hover {
+  background: #f55656;
+}
+
+@media (min-width: 1000px) {
+  .Card {
+    width: 15vw;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 999px) {
+  .Card {
+    width: 30%;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 699px) {
+  .Card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 499px) {
+  .Card {
+    width: 90%;
+  }
 }
