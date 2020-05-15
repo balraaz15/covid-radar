@@ -1,4 +1,19 @@
+.Container {
+  width: 80%;
+  margin: 0 auto;
+}
+
 .link {
-  color: white !important;
   text-decoration: none !important;
+}
+
+.homepage {
+  position: absolute;
+  right: 0;
+}
+
+@media (max-width: 950px) {
+  .homepage {
+    display: none;
+  }
 }
