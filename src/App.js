@@ -14,8 +14,15 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const data = await getLatestData();
-    this.setState({ latestData: data });
+    const sc = localStorage.getItem('selectedCountry');
+    if (sc) {
+      const data = await getLatestData(sc);
+      const countryHistoricalData = await getCountriesHistoricalData(sc, 30);
+      this.setState({ latestData: data, selectedCountry: sc, countryHistory: countryHistoricalData });
+    } else {
+      const data = await getLatestData();
+      this.setState({ latestData: data });
+    }
   }
 
   handleCountrySelect = async (country) => {
@@ -23,11 +30,12 @@ class App extends Component {
     const countryHistoricalData = await getCountriesHistoricalData(country, 30);
 
     if (country === 'All') {
+      localStorage.setItem('selectedCountry', '');
       this.setState({ latestData: data, selectedCountry: '', countryHistory: '' });
     } else {
+      localStorage.setItem('selectedCountry', country);
       this.setState({ latestData: data, selectedCountry: country, countryHistory: countryHistoricalData });
     }
-    console.log(country);
   }
 
   render() {
@@ -43,7 +51,7 @@ class App extends Component {
           </Route>
           <Route path="/">
             <Cards data={latestData} />
-            <CountryPicker handleCountrySelect={this.handleCountrySelect} />
+            <CountryPicker selected={selectedCountry} handleCountrySelect={this.handleCountrySelect} />
             <Graph data={countryHistory} country={selectedCountry} />
           </Route>
         </Switch>
