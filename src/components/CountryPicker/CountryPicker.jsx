@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { HTMLSelect } from '@blueprintjs/core';
+
 import styles from './CountryPicker.module.css';
+import { getCountriesList } from '../../api/api';
 
-import { getCountries } from '../../api/api';
-
-const CountryPicker = ({ handleCountrySelect }) => {
+const CountryPicker = ({ handleCountrySelect, selectedCountry }) => {
 	const [countries, setCountries] = useState([]);
 
 	useEffect(() => {
 		const fetchCountries = async () => {
-			setCountries(await getCountries());
+			setCountries(await getCountriesList());
 		}
 		fetchCountries();
 	}, [setCountries]);
@@ -19,7 +19,12 @@ const CountryPicker = ({ handleCountrySelect }) => {
 			<HTMLSelect fill={true} onChange={(e) => handleCountrySelect(e.target.value)}>
 				<option value="All">Global Data (Select a country)</option>
 				{
-					countries.map((c, i) => <option key={i} value={c.countryInfo.iso2 ? c.countryInfo.iso2 : c.country}>{c.country}</option>)
+					countries.map((c, i) => <option
+						key={i}
+						value={c.country}
+						selected={localStorage.getItem('selectedCountry') === c.country ? 'selected' : ''}>
+						{c.country}
+					</option>)
 				}
 			</HTMLSelect>
 		</div>
