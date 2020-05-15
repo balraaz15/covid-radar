@@ -13,7 +13,10 @@ class Graph extends Component {
 	async componentDidMount() {
 		const data = await getHistoricalData(30);
 		this.setState({ historicalData: data });
+		this.setGraphData();
+	}
 
+	setGraphData = () => {
 		if (this.state.historicalData.cases !== undefined) {
 			const coval = Object.keys(this.state.historicalData.cases);
 			const csval = Object.values(this.state.historicalData.cases);
@@ -43,7 +46,11 @@ class Graph extends Component {
 			cntrd = this.props.data.deaths ? Object.values(this.props.data.deaths) : 'No Data Available';
 		}
 
-		const formattedDate = co.map(opt => opt.slice(0, -3));
+		const formattedDate = co.map(opt => {
+			const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June'];
+			const a = opt.slice(0, -3).split('/');
+			return `${months[Number(a[0]) - 1]} ${a[1]}`
+		});
 		let options, series;
 		if (type === 'area') {
 			options = {
@@ -51,6 +58,9 @@ class Graph extends Component {
 				dataLabels: { enabled: false },
 				stroke: { curve: 'smooth' },
 				xaxis: { type: 'date', categories: formattedDate },
+				tooltip: {
+					followCursor: true,
+				},
 				responsive: [{
 					breakpoint: 600,
 					options: {
@@ -89,6 +99,9 @@ class Graph extends Component {
 				stroke: { show: true, width: 2, colors: ['transparent'] },
 				xaxis: { categories: formattedDate },
 				fill: { opacity: 1 },
+				tooltip: {
+					followCursor: true,
+				},
 				responsive: [{
 					breakpoint: 600,
 					options: {
