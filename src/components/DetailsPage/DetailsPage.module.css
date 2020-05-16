@@ -12,7 +12,23 @@
   right: 0;
 }
 
-@media (max-width: 950px) {
+.allCountriesTab {
+  width: 280px !important;
+  height: 60px;
+}
+
+.countrySearchBox {
+  display: inline-block;
+  margin-left: 10px;
+  width: 180px;
+}
+
+.countrySearchBox input {
+  background: rgba(67, 106, 141, 0.3);
+  box-shadow: none !important;
+}
+
+@media (max-width: 1190px) {
   .homepage {
     display: none;
   }
