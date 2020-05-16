@@ -19,3 +19,7 @@ code {
 .bp3-tab-list {
   flex-wrap: wrap;
 }
+
+.bp3-tab-indicator-wrapper {
+  height: 35px !important;
+}
