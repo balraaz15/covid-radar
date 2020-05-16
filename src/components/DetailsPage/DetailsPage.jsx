@@ -11,6 +11,7 @@ const DetailsPage = () => {
 	const [latestData, setLatestData] = useState([]);
 	const [continents, setContinents] = useState([]);
 	const [continentData, setContinentData] = useState([]);
+	const [filteredCountries, setFilteredCountries] = useState([]);
 
 	useEffect(() => {
 		const fetchContinents = async () => {
@@ -42,10 +43,21 @@ const DetailsPage = () => {
 	}
 	if (continentData.countries) modifyLatestData();
 
+	const handleChange = e => {
+		const fd = latestData.filter(item => item.country.toLowerCase().includes(e.target.value.toLowerCase()));
+		setFilteredCountries(fd);
+	}
+
 	return (
 		<div className={styles.Container}>
 			<Tabs id="TabsExample" className={styles.tabs}>
-				<Tab id="all" title="All Countries" panel={<Continent title="All Countries" data={latestData} />} />
+
+				<Tab id="all" title="All Countries" panel={<Continent title="All Countries" data={filteredCountries[0] ? filteredCountries : latestData} className={styles.allCountriesTab} />}>
+					<div className={cx("bp3-input-group", styles.countrySearchBox)}>
+						<span className="bp3-icon bp3-icon-search"></span>
+						<input className="bp3-input" type="search" placeholder="Search countries ..." dir="auto" onChange={(e) => handleChange(e)} />
+					</div>
+				</Tab>
 				{
 					continents ?
 						continents.map((c, i) => <Tab
