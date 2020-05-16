@@ -6,3 +6,28 @@
   margin: 40px 0 50px 0;
   padding: 0 10px 10px 10px;
 }
+
+.notAvailable {
+  font-weight: bold;
+  color: red;
+}
+
+.todayCases {
+  border-bottom: 3px solid orange;
+}
+
+.todayDeaths {
+  border-bottom: 4px solid red;
+}
+
+.countryRow {
+  transition: all 0.1s ease-in-out;
+}
+
+.countryRow:hover {
+  transform: scaleX(1.01);
+  background: linear-gradient(90deg, #83a4d4, #8fd4d8);
+}
+
+.tableHeading {
+}
