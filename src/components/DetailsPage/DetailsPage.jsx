@@ -52,7 +52,7 @@ const DetailsPage = () => {
 		<div className={styles.Container}>
 			<Tabs id="TabsExample" className={styles.tabs}>
 
-				<Tab id="all" title="All Countries" panel={<Continent title="All Countries" data={filteredCountries[0] ? filteredCountries : latestData} className={styles.allCountriesTab} />}>
+				<Tab id="all" title="All Countries" panel={<Continent title="All Countries" data={filteredCountries[0] ? filteredCountries : latestData} className={cx(styles.tab, styles.allCountriesTab)} />}>
 					<div className={cx("bp3-input-group", styles.countrySearchBox)}>
 						<span className="bp3-icon bp3-icon-search"></span>
 						<input className="bp3-input" type="search" placeholder="Search countries ..." dir="auto" onChange={(e) => handleChange(e)} />
@@ -65,12 +65,13 @@ const DetailsPage = () => {
 							key={c.continent.slice(0, 2)}
 							id={i}
 							title={c.continent}
-							panel={<Continent data={continentData} />}
+							panel={<Continent title={continentData.continent} data={continentData}
+								className={styles.tab} />}
 						/>
 						) : null
 				}
 
-				<Button className={cx('bp3-minimal bp3-outlined', styles.homepage)} intent="primary">
+				<Button className={cx('bp3-minimal bp3-outlined', styles.homepageBtn)} intent="primary">
 					<Link to="/" className={styles.link}>Go to home page</Link>
 				</Button>
 			</Tabs>

@@ -7,7 +7,7 @@
   text-decoration: none !important;
 }
 
-.homepage {
+.homepageBtn {
   position: absolute;
   right: 0;
 }
@@ -29,7 +29,13 @@
 }
 
 @media (max-width: 1190px) {
-  .homepage {
+  .homepageBtn {
     display: none;
+  }
+}
+
+@media (max-width: 1025px) {
+  .Container {
+    width: 90%;
   }
 }
