@@ -11,14 +11,14 @@ const Continent = props => {
 	}
 
 	const numberWithCommas = (data) => {
-		return data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		return data ? data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : '0';
 	}
 
 	return (
 		<Fragment>
 			<table className={cx('bp3-html-table', 'bp3-html-table-striped', 'bp3-elevation-2', styles.table)}>
-				<thead>
-					<tr className={styles.tableHeading}>
+				<thead className={styles.tableHeading}>
+					<tr>
 						<th>Rank</th>
 						<th>Country</th>
 						<th>Total Cases</th>
@@ -32,34 +32,35 @@ const Continent = props => {
 						<th>Total Population</th>
 					</tr>
 				</thead>
+
 				<tbody>
 					{
 						props.data ?
 							props.data.map((d, i) => <tr key={d.country} className={styles.countryRow}>
-								<td>{i + 1}</td>
-								<td title={d.country}>
+								<td data-label="Rank">{i + 1}</td>
+								<td data-label="Country" title={d.country}>
 									<img src={d.countryInfo.flag} width="20" className={styles.flag} alt={d.country} />
-									{d.country.length > 15 ? d.country.slice(0, 15) + '...' : d.country}
+									{d.country}
 								</td>
-								<td>{numberWithCommas(d.cases)}</td>
-								<td className={d.todayCases ? styles.todayCases : ''}>
-									{d.todayCases ? '+' + numberWithCommas(d.todayCases) : ''}
+								<td data-label="Total Cases">{numberWithCommas(d.cases)}</td>
+								<td data-label="Cases Today" className={d.todayCases ? styles.todayCases : ''}>
+									{d.todayCases > 0 ? '+' + numberWithCommas(d.todayCases) : '0'}
 								</td>
-								<td>{numberWithCommas(d.deaths)}</td>
-								<td className={d.todayDeaths ? styles.todayDeaths : ''}>
-									{d.todayDeaths ? '+' + numberWithCommas(d.todayDeaths) : ''}
+								<td data-label="Total Deaths">{numberWithCommas(d.deaths)}</td>
+								<td data-label="Deaths Today" className={d.todayDeaths ? styles.todayDeaths : ''}>
+									{d.todayDeaths > 0 ? '+' + numberWithCommas(d.todayDeaths) : '0'}
 								</td>
-								<td>
+								<td data-label="Total Recovered">
 									{d.recovered ? numberWithCommas(d.recovered) : <span className={styles.notAvailable}>N/A</span>}
 								</td>
-								<td>
+								<td data-label="Active Cases">
 									{d.active ? numberWithCommas(d.active) : <span className={styles.notAvailable}>N/A</span>}
 								</td>
-								<td>{numberWithCommas(d.critical)}</td>
-								<td>
+								<td data-label="Critical Cases">{numberWithCommas(d.critical)}</td>
+								<td data-label="Total Tests">
 									{d.tests ? numberWithCommas(d.tests) : <span className={styles.notAvailable}>N/A</span>}
 								</td>
-								<td>{numberWithCommas(d.population)}</td>
+								<td data-label="Total Population">{numberWithCommas(d.population)}</td>
 							</tr>) : <Spinner />
 					}
 				</tbody>
