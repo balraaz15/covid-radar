@@ -1,12 +1,42 @@
 .countryPicker {
-  display: block;
-  width: 45%;
+  display: flex;
+  width: 40%;
   margin: 0 auto;
   padding: 5px 10px;
+  position: relative;
+}
+
+.select {
+  display: inline-block;
+}
+
+.countryPicker Button {
+  display: inline-block;
+  width: 35%;
+  margin-left: 10px;
+  text-align: center;
 }
 
 @media (max-width: 650px) {
   .countryPicker {
     width: 80%;
+  }
+}
+
+@media (max-width: 930px) {
+  .countryPicker {
+    width: 70%;
+  }
+}
+
+@media (max-width: 615px) {
+  .countryPicker {
+    display: block !important;
+  }
+  .countryPicker Button {
+    display: block !important;
+    text-align: center;
+    width: 60%;
+    margin: 10px auto 0 auto;
   }
 }
