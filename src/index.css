@@ -23,3 +23,13 @@ code {
 .bp3-tab-indicator-wrapper {
   height: 35px !important;
 }
+
+@media (max-width: 1050px) {
+  .bp3-tab {
+    margin-bottom: 15px;
+  }
+
+  .bp3-tab:last-child {
+    margin-bottom: 0 !important;
+  }
+}
