@@ -27,3 +27,5 @@ package-lock.json
 firebase.json
 /.firebase
 yarn.lock
+
+src/config.js
