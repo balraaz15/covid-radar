@@ -25,7 +25,7 @@ class App extends Component {
     }
   }
 
-  handleCountrySelect = async (country) => {
+  handleCountrySelect = async (country = localStorage.getItem('myCountry')) => {
     const data = await getLatestData(country);
     const countryHistoricalData = await getCountriesHistoricalData(country, 30);
 
