@@ -14,7 +14,7 @@ const DataCard = props => {
 		title = 'Deaths Today';
 	}
 	return (
-		<Card interactive={true} elevation={Elevation.TWO} className={cx(styles.Card, styles[props.title])}>
+		<Card interactive={true} elevation={Elevation.TWO} className={cx(styles.Card, styles[props.title], styles[props.size])}>
 			<h3 className={styles.title}>{title}</h3>
 			<h2 className={styles.data}>
 				{(props.title === 'todayCases' || props.title === 'todayDeaths') && props.data ? '+' : ''}<CountUp start={0} end={props.data} duration={2} separator="," />

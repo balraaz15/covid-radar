@@ -77,6 +77,20 @@
   background: #f55656;
 }
 
+.card-sm {
+  width: 12vw;
+  padding: 10px 0;
+  margin: 5px 0 -10px 0;
+}
+
+.card-sm .title {
+  margin: 5px 0;
+}
+
+.card-sm .data {
+  margin: 0;
+}
+
 @media (min-width: 1000px) {
   .Card {
     width: 15vw;

@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Spinner } from '@blueprintjs/core';
 import cx from 'classnames';
 
+import DataCard from '../DataCard/DataCard';
 import styles from './Continent.module.css';
 
 const Continent = props => {
@@ -16,6 +17,17 @@ const Continent = props => {
 
 	return (
 		<Fragment>
+			{
+				props.overall ?
+					<div className={styles.continentCardList}>
+						<DataCard title="cases" data={props.overall.cases} size="card-sm" />
+						<DataCard title="deaths" data={props.overall.deaths} size="card-sm" />
+						<DataCard title="recovered" data={props.overall.recovered} size="card-sm" />
+						<DataCard title="todayCases" data={props.overall.todayCases} size="card-sm" />
+						<DataCard title="todayDeaths" data={props.overall.todayDeaths} size="card-sm" />
+					</div> : null
+			}
+
 			<table className={cx('bp3-html-table', 'bp3-html-table-striped', 'bp3-elevation-2', styles.table)}>
 				<thead className={styles.tableHeading}>
 					<tr>

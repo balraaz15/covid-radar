@@ -65,8 +65,7 @@ const DetailsPage = () => {
 							key={c.continent.slice(0, 2)}
 							id={i}
 							title={c.continent}
-							panel={<Continent title={continentData.continent} data={continentData}
-								className={styles.tab} />}
+							panel={<Continent title={continentData.continent} data={continentData} overall={c} className={styles.tab} />}
 						/>
 						) : null
 				}
