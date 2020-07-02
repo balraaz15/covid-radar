@@ -47,7 +47,7 @@ class Graph extends Component {
 		}
 
 		const formattedDate = co.map(opt => {
-			const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June'];
+			const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 			const a = opt.slice(0, -3).split('/');
 			return `${months[Number(a[0]) - 1]} ${a[1]}`
 		});
