@@ -7,6 +7,7 @@
   padding: 0 10px 10px 10px;
   table-layout: fixed;
   font-family: "Baloo 2", cursive;
+  width: 100%;
 }
 
 .notAvailable {
@@ -27,7 +28,7 @@
 }
 
 .countryRow:hover {
-  transform: scaleX(1.01);
+  transform: scaleX(1.007);
   background: linear-gradient(90deg, #83a4d4, #8fd4d8);
 }
 
@@ -83,5 +84,13 @@
 
   table td:last-child {
     border-bottom: 0;
+  }
+
+  .todayCases {
+    color: orange !important;
+  }
+
+  .todayDeaths {
+    color: red !important;
   }
 }
