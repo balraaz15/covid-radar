@@ -14,12 +14,12 @@ const success = async (pos) => {
 
 	try {
 		const reverseGeoCoded = await axios.get(`https://us1.locationiq.com/v1/reverse.php?key=${locationIQApiKey}&lat=${lat}&lon=${lon}&format=json`);
-		await localStorage.setItem('myCountry', reverseGeoCoded.data.address.country);
+		localStorage.setItem('myCountry', reverseGeoCoded.data.address.country);
 	} catch (error) {
 		try {
 			console.warn('Cannot connect to the datapoint. Connecting to next datapoint ...');
 			const reverseGeoCoded = await axios.get(`https://eu1.locationiq.com/v1/reverse.php?key=${locationIQApiKey}&lat=${lat}&lon=${lon}&format=json`);
-			await localStorage.setItem('myCountry', reverseGeoCoded.data.address.country);
+			localStorage.setItem('myCountry', reverseGeoCoded.data.address.country);
 		} catch (error) {
 			console.log(error);
 			alert('Could not connect to any datapoints. Please try again some time later.');

@@ -31,8 +31,8 @@ const Continent = props => {
 			<table className={cx('bp3-html-table', 'bp3-html-table-striped', 'bp3-elevation-2', styles.table)}>
 				<thead className={styles.tableHeading}>
 					<tr>
-						<th>Rank</th>
-						<th>Country</th>
+						<th style={{width: '4.5vw'}}>Rank</th>
+						<th style={{width: '12vw'}}>Country</th>
 						<th>Total Cases</th>
 						<th>Cases Today</th>
 						<th>Total Deaths</th>

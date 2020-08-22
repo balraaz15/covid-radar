@@ -18,8 +18,8 @@ const CountryPicker = ({ handleCountrySelect, selectedCountry }) => {
 	}, [setCountries]);
 
 	const reverseGeocode = async () => {
-		await getCountry();
-		setTimeout(() => {setMyCountry(localStorage.getItem('myCountry'))}, 1000);
+		getCountry();
+		setTimeout(() => {setMyCountry(localStorage.getItem('myCountry'))}, 2000);
 		handleCountrySelect();
 	}
 
@@ -39,7 +39,7 @@ const CountryPicker = ({ handleCountrySelect, selectedCountry }) => {
 			{
 				showMyCountry ?
 					<Button className="bp3-minimal bp3-outlined" intent="primary" onClick={() => { handleCountrySelect('All'); setShowMyCountry(false) }}>Select Global</Button>
-					: localStorage.getItem('myCountry') ?
+					: myCountry ?
 						localStorage.getItem('selectedCountry') !== myCountry ?
 							<Button className="bp3-minimal bp3-outlined" intent="primary" onClick={() => { handleCountrySelect(); setShowMyCountry(true) }}>Select My country</Button>
 							: <Button className="bp3-minimal bp3-outlined" intent="primary" onClick={() => { handleCountrySelect('All'); setShowMyCountry(false) }}>Select Global</Button>
